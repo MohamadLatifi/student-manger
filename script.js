@@ -46,3 +46,19 @@ const createStudentElement = ({ name, age, roll }) => {
 studentsContainer.style.display = students.length === 0 ? "none" : "flex";
 
 students.forEach(createStudentElement);
+
+studentForm.onsubmit = e => {
+    e.preventDefault();
+
+    const newStudent = addStudent(
+        nameInput.value,
+        ageInput.value,
+        rollInput.value
+    );
+
+    createStudentElement(newStudent);
+
+    nameInput.value = "";
+    ageInput.value = "";
+    rollInput.value = "";
+};
